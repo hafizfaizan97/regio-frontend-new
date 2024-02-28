@@ -1,7 +1,13 @@
 import React from 'react'
+import withRouter from '../common/withRouter';
+import ParticlesAuth from '../../HOC/ParticlesAuth';
 
-export const RegisterComponent = () => {
+const RegisterComponent = () => {
   return (
-    <div>RegisterComponent</div>
+    <ParticlesAuth>
+      <div>RegisterComponent</div>
+    </ParticlesAuth>
   )
 }
+
+export default withRouter(RegisterComponent);
