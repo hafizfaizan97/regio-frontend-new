@@ -2,28 +2,46 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardBody, Col, Container, Input, Label, Row, Button, Form, FormFeedback, Alert, Spinner } from 'reactstrap';
 // import ParticlesAuth from "../AuthenticationInner/ParticlesAuth";
 import { useSelector, useDispatch } from "react-redux";
-
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
 // import logoLight from "../../assets/images/logo-light.png";
 import enLogoWhite from '../../assets/images_/logo_white_en.png'
-import { createSelector } from 'reselect';
-import ParticlesAuth from '../../HOC/ParticlesAuth';
-import withRouter from '../common/withRouter';
+// import { createSelector } from 'reselect';
+import ParticlesAuth from '../../HOC/ParticlesAuth'
+import withRouter from '../../components/common/withRouter';
+import { signInSchema } from '../../utils/validations';
+import { isEmpty } from '../../utils/helpers';
+import { loginRequest } from '../../store/authSlice';
 //import images
-
 function LoginComponent() {
   const dispatch = useDispatch();
-  document.title = "SignIn | Velzon - React Admin & Dashboard Template";
+  document.title = "SignIn";
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
+
+    // const { userProfile } = useSelector(state => state.auth)
+
+    const formik = useFormik({
+        initialValues: {
+            email: "",
+            password: ""
+        },
+        validationSchema: signInSchema,
+        onSubmit: (values) => {
+            onFormSubmit(values)
+         }
+    })
+    const onFormSubmit = async (payload) => {
+        await dispatch(loginRequest(payload))
+        return redirect('/dashboard')
+    }
   return (
     <>
               <ParticlesAuth>
                 <div className="auth-page-content mt-lg-5">
-                    <Container style={{border:'2px solid red'}}>
+                    <Container>
                         <Row>
                             <Col lg={12}>
                                 <div className="text-center mt-sm-5 mb-4 text-white-50">
@@ -40,20 +58,20 @@ function LoginComponent() {
                         <Row className="justify-content-center">
                             <Col md={8} lg={6} xl={5}>
                                 <Card className="mt-4">
-                                    <CardBody className="p-4" style={{border:'2px solid green'}}>
+                                    <CardBody className="p-4" >
                                         <div className="text-center mt-2">
                                             <h5 className="text-primary">Welcome Back !</h5>
-                                            <p className="text-muted">Sign in to continue to Velzonsss.</p>
+                                            <p className="text-muted">Sign in to continue to Reginal Concept.</p>
                                         </div>
                                         {/* {error && error ? (<Alert color="danger"> {error} </Alert>) : null} */}
                                         <div className="p-2 mt-4">
                                             <Form
-                                              //   onSubmit={(e) => {
-                                              //       e.preventDefault();
-                                              //       validation.handleSubmit();
-                                              //       return false;
-                                              //   }
-                                              // }
+                                                onSubmit={
+                                                    formik.handleSubmit
+                                                    // validation.handleSubmit();
+                                                    // return false;
+                                                // }
+                                              }
                                                 action="#">
 
                                                 <div className="mb-3">
@@ -63,9 +81,9 @@ function LoginComponent() {
                                                         className="form-control"
                                                         placeholder="Enter email"
                                                         type="email"
-                                                        // onChange={validation.handleChange}
+                                                        onChange={formik.handleChange}
+                                                        value={formik.values.email || ""}
                                                         // onBlur={validation.handleBlur}
-                                                        // value={validation.values.email || ""}
                                                         // invalid={
                                                         //     validation.touched.email && validation.errors.email ? true : false
                                                         // }
@@ -77,22 +95,22 @@ function LoginComponent() {
 
                                                 <div className="mb-3">
                                                     <div className="float-end">
-                                                        {/* <Link to="/forgot-password" className="text-muted">Forgot password?</Link> */}
-                                                        <a href="/forgot-password" className="text-muted">Forgot password?</a>
+                                                        <Link to="/forgot-password" className="text-muted">Forgot password?</Link>
                                                     </div>
                                                     <Label className="form-label" htmlFor="password-input">Password</Label>
                                                     <div className="position-relative auth-pass-inputgroup mb-3">
                                                         <Input
                                                             name="password"
-                                                            // value={validation.values.password || ""}
-                                                            // type={passwordShow ? "text" : "password"}
-                                                            // className="form-control pe-5"
-                                                            // placeholder="Enter Password"
-                                                            // onChange={validation.handleChange}
-                                                            // onBlur={validation.handleBlur}
-                                                            // invalid={
-                                                            //     validation.touched.password && validation.errors.password ? true : false
-                                                            // }
+                                                        //   type={passwordShow ? "text" : "password"}
+                                                          type={'password'}
+                                                          className="form-control pe-5"
+                                                          placeholder="Enter Password"
+                                                          onChange={formik.handleChange}
+                                                          value={formik.values.email || ""}
+                                                          // onBlur={validation.handleBlur}
+                                                          // invalid={
+                                                          //     validation.touched.password && validation.errors.password ? true : false
+                                                          // }
                                                         />
                                                         {/* {validation.touched.password && validation.errors.password ? (
                                                             <FormFeedback type="invalid">{validation.errors.password}</FormFeedback>
