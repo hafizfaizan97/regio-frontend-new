@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Login from './components/auth/LoginComponent';
 import RegisterComponent from './components/auth/RegisterComponent';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import './assets/scss/themes.scss';
 function App() {
   // const { demoSlice } = useSelector(state => state.demo)
   // console.log('demoSlice', demoSlice)
