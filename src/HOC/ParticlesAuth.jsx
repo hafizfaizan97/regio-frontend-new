@@ -7,7 +7,7 @@ const ParticlesAuth = ({ children }) => {
             <div className="auth-page-wrapper pt-5">
                 <div className="auth-one-bg-position auth-one-bg" id="auth-particles">
 
-                    <div className="bg-overlay"></div>
+                    {/*<div className="bg-overlay"></div>*/}
 
                     <div className="shape">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
@@ -20,17 +20,17 @@ const ParticlesAuth = ({ children }) => {
 
                 </div>
 
-                <footer className="footer">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="text-center">
-                                    <p className="mb-0 text-muted">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                {/*<footer className="footer">*/}
+                {/*    <div className="container">*/}
+                {/*        <div className="row">*/}
+                {/*            <div className="col-lg-12">*/}
+                {/*                <div className="text-center">*/}
+                {/*                    <p className="mb-0 text-muted">&copy; {new Date().getFullYear()} Velzon. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</footer>*/}
             </div>
         </React.Fragment>
     );
