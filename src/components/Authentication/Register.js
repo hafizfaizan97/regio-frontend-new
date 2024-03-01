@@ -109,7 +109,8 @@ const Register = () => {
                                     <CardBody className="p-4">
                                         <div className="text-center mt-2">
                                             <h5 className="text-primary">Create New Account</h5>
-                                            <p className="text1-muted">Get your free velzon account now</p>
+                                            {/*<p className="text1-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod*/}
+                                            {/*    tempor incididu </p>*/}
                                         </div>
                                         <div className="p-2 mt-4">
                                             <Form
@@ -360,23 +361,23 @@ const Register = () => {
                                                             with</h5>
                                                     </div>
 
-                                                    <div>
-                                                        <button type="button"
-                                                                className="btn btn-primary btn-icon waves-effect waves-light">
-                                                            <i className="ri-facebook-fill fs-16"></i></button>
-                                                        {" "}
-                                                        <button type="button"
-                                                                className="btn btn-danger btn-icon waves-effect waves-light">
-                                                            <i className="ri-google-fill fs-16"></i></button>
-                                                        {" "}
-                                                        <button type="button"
-                                                                className="btn btn-dark btn-icon waves-effect waves-light">
-                                                            <i className="ri-github-fill fs-16"></i></button>
-                                                        {" "}
-                                                        <button type="button"
-                                                                className="btn btn-info btn-icon waves-effect waves-light">
-                                                            <i className="ri-twitter-fill fs-16"></i></button>
-                                                    </div>
+                                                    {/*<div>*/}
+                                                    {/*    <button type="button"*/}
+                                                    {/*            className="btn btn-primary btn-icon waves-effect waves-light">*/}
+                                                    {/*        <i className="ri-facebook-fill fs-16"></i></button>*/}
+                                                    {/*    {" "}*/}
+                                                    {/*    <button type="button"*/}
+                                                    {/*            className="btn btn-danger btn-icon waves-effect waves-light">*/}
+                                                    {/*        <i className="ri-google-fill fs-16"></i></button>*/}
+                                                    {/*    {" "}*/}
+                                                    {/*    <button type="button"*/}
+                                                    {/*            className="btn btn-dark btn-icon waves-effect waves-light">*/}
+                                                    {/*        <i className="ri-github-fill fs-16"></i></button>*/}
+                                                    {/*    {" "}*/}
+                                                    {/*    <button type="button"*/}
+                                                    {/*            className="btn btn-info btn-icon waves-effect waves-light">*/}
+                                                    {/*        <i className="ri-twitter-fill fs-16"></i></button>*/}
+                                                    {/*</div>*/}
                                                 </div>
                                             </Form>
                                         </div>
